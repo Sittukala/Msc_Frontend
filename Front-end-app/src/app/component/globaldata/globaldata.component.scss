@@ -1,0 +1,100 @@
+.container{
+    height: 140px !important;
+    position: relative;
+  //  margin-left: 33px;
+    // color: white;
+}
+.w3header{
+    background: linear-gradient(to right, #002653 2%, #4c6786 100%);
+}
+
+@media only screen and (min-width : 1200px) {
+
+.card{
+
+  top: -20px; 
+  margin-left: 300px;
+  margin-right: 20px;
+//   background-color: rgb(252, 247, 240);
+}}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+#chartdiv {
+   // margin-top:10px;
+  width: 100%;
+  height: 50vh;
+  background-color: #060d16;
+  padding:15px;
+}
+
+.card{
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+  
+  }
+
+.card{
+    .innercard{
+        background-color:rgb(245, 247, 241);
+    }
+  
+    .desc{
+        margin-top: 25px;padding: 10px; width: 600px;
+        color: black;
+        font-size: 18px;
+        font-weight: 500;
+        
+    }
+    .desc:hover{
+        color: blue;
+        font-size: 20px;;
+        font-weight: 500;
+    }
+    #btn{
+        position: relative;
+        width: 100px;
+        margin-top:60px;
+    }
+}
+
+
+.category, .card1-category{
+    width: 100%;
+    position: relative;
+    line-height: 0;
+    margin: 20px;
+    text-transform: capitalize;
+    font-weight: 400;
+    
+    font-size: 1em!important;
+
+}
+
+// .card1{
+
+//     top: -20px; 
+//    // margin-left: 300px;
+//     margin-right: 20px;
+//   }
+  
+
+// .glowtext {
+//     font-size: 20px;
+//     color: #fff;
+//     text-align: center;
+//     animation: glow 1s ease-in-out infinite alternate;
+//     text-decoration:none;
+//   }
+  
+//   @-webkit-keyframes glowtext {
+//     from {
+//       text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #ebf191, 0 0 40px #ebf191, 0 0 50px #ebf191, 0 0 60px #ebf191, 0 0 70px #ebf191;
+//     }
+    
+//     to {
+//       text-shadow: 0 0 10px #fff, 0 0 20px #f0f3c4, 0 0 20px #f0f3c4, 0 0 40px #f0f3c4, 0 0 60px #f0f3c4, 0 0 70px #f0f3c4, 0 0 80px #f0f3c4;
+//     }
+//   }
+

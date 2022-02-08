@@ -1,0 +1,91 @@
+<div>
+  <div class="card1">
+    <div class="card-body">
+      <h5 *ngIf=" isLoggedIn()" class="card-title">Like Zone</h5>
+      <h5 *ngIf="! isLoggedIn()" class="card-title"><a class="login" data-toggle="modal"
+          data-target="#exampleModal">Login</a> to view your Like Zone</h5>
+
+      <!-- Modal -->
+      <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" style="text-align: center; justify-content: center ;color: rgb(223, 78, 20)">Login
+                to BuzzFeed</h5>
+              <button type="button" data-dismiss="modal" class="close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+            
+              <form #LoginForm="ngForm" (click)="login(user); LoginForm.resetForm()">
+
+                <div class="form-group">
+
+                  <!-- <label for="jobTitle"  class="form-control-label">Job Title</label> -->
+                  <input type="text" class="form-control" placeholder="user" required name="userName" id="userName"
+                    [(ngModel)]="user.userName" #userNameControl="ngModel">
+
+
+                  <div *ngIf="userNameControl.invalid && (userNameControl.dirty || userNameControl.touched)"
+                    class="alert alert-danger">
+
+                    <div *ngIf="userNameControl.errors.required">
+                      UserName
+                    </div>
+
+
+                  </div>
+                </div>
+                <div class="form-group" [class.is-invalid]="passwordControl.invalid && passwordControl.touched"
+                  [class.in-valid]="passwordControl.valid">
+                  <!-- <label for="jobTitle"  class="form-control-label">Job Title</label> -->
+                  <input type="password" class="form-control" placeholder="password" required name="password"
+                    id="password" [(ngModel)]="user.password" #passwordControl="ngModel">
+
+
+                  <div *ngIf="passwordControl.invalid && (passwordControl.dirty || passwordControl.touched)"
+                    class="alert alert-danger">
+
+                    <div *ngIf="passwordControl.errors.required">
+                      Password
+                    </div>
+
+
+                  </div>
+                </div>
+
+
+
+                <input type="submit" class="btn btn-primary btn-block" data-dismiss="modal" value="Login">
+                <strong style="color: rgb(78, 78, 230);"> Not a User?</strong><a style="color: red;"
+                  data-dismiss="modal" [routerLink]="['/signup']">Click to Register</a>
+
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div *ngIf="this. isLoggedIn()" class="row">
+        <div *ngFor="let news of list_likes" class="col-md-4">
+          <div class="d-flex pb-3">
+            <div class="card card-block">
+
+              <img class="card-img-top" src="{{news.urlToImage}}" alt="Card image">
+              <div class="card-body">
+                <a class="title" href={{news.url}}>{{news.title}}</a>
+                <p class="card1-description" style="margin: 2px;padding: 2px;">{{ news.description}}</p>
+                <h6 class="category text-success"><i class="fa fa-university"></i>{{news.category}}</h6>
+
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

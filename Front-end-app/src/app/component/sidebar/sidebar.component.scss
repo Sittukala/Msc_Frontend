@@ -1,0 +1,117 @@
+.container{
+    height: 180px !important;
+    position: relative;
+    margin-left: 33px;
+    color: white;
+}
+.w3header{
+    background: linear-gradient(to right, #002653 2%, #4c6786 100%);
+}
+
+.login{
+    margin: 6px;
+    margin-right: 20px;
+    padding-right: 12px;
+    float: right;
+}
+
+#mySidebar{
+//background-color: rgb(13, 13, 32);
+background-color: #fc6739;
+width:250px;
+color: white;
+font-size: 14px;
+
+}
+
+
+.dropdown i{
+  float: right;
+}
+.searchIcon{
+    position: absolute;
+    float: right;
+    right: 90px;
+    top:51px;
+    z-index: 1;
+    color: black;
+}
+.dropdown i{
+
+
+border: brown;
+border-style: solid;
+margin-left: 9px;
+margin-right: 30px;
+border-color: cornflowerblue;
+border-radius: 200px !important;
+border-width: 5px 20px;
+width: fit-content;
+text-decoration: none;
+
+background: cornflowerblue;
+color: white !important;
+
+}
+
+
+.dropdown a{
+  
+   float: right;
+   
+}
+
+
+a{
+    text-decoration: none;
+}
+.menuicon{
+     display: inline-block;
+    color: white !important;
+  
+}
+.active > .menuicon{
+    background: whitesmoke !important;
+    color: orangered !important;
+}
+
+.menuTitle{
+    color: whitesmoke;
+}
+
+.active a{
+    //border: none;
+
+        border: brown;
+        border-style: solid;
+        border-color: white;
+        border-radius: 200px !important;
+        border-width: 5px 20px;
+        width: fit-content;
+        text-decoration: none;
+       
+    background: white;
+    color: orangered !important;
+}
+
+.nav-item a{
+    color: white;
+}
+.usericon{
+    height: 40px;width: 20px;
+    padding: 2px;
+
+}
+// .usericon:hover{
+//    // border: inherit;
+//     border-color: blue;
+//     border-width: 10px;
+// }
+
+@media only screen and (max-width : 620px) {
+    .dropdown i{
+        margin-right: 20px;
+        padding: 10px;
+    }
+
+}

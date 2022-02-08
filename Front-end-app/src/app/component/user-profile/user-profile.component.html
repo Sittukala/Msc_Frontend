@@ -1,0 +1,158 @@
+<script src="//cdn.amcharts.com/lib/4/core.js"></script>
+<script src="//cdn.amcharts.com/lib/4/charts.js"></script>
+<div>
+  <div class="card1">
+    <div class="card-body">
+      <h5 class="card-title">USER PROFILE</h5>
+      <div class="row">
+        <div class="col-lg-4">
+          <!--Bootstrap card-->
+          <div class="card inner" style="width: 19rem;">
+            <div class="flip-card">
+              <div class="flip-card-inner">
+                <div class="flip-card-front">
+                  <br />
+                  <img class="img-circle card-img-top" src="../../../assets/images/user.png" alt="Avatar"
+                    style="width:130px;height:130px;">
+                </div>
+                <div class="flip-card-back">
+                  <h1>{{user.userName}}</h1>
+                  <p>{{user.emailId}}</p>
+                  <p>{{user.phoneNumber}}</p>
+                  <p>{{user.location}}</p>
+
+                </div>
+              </div>
+            </div>
+            <div class="card-body">
+              <h5 class="card-title">{{user.userName}}</h5>
+            </div>
+            <ul class="list-group list-group-flush">
+              <li (click)="loadProfile()" class="list-group-item">Profile</li>
+              <li (click)="editProfile()" class="list-group-item">Edit Profile</li>
+              <li (click)="loadcharts()" class="list-group-item">View Chart</li>
+            </ul>
+            <!-- <div class="card-body">
+                      <a href="#" class="card-link">Card link</a>
+                      <a href="#" class="card-link">Another link</a>
+                    </div> -->
+          </div>
+
+        </div>
+        <div class="col-lg-8">
+          <div *ngIf="!chartsdata" class="card mb-3" style="width: 800px; height: 400px;">
+            <h3>Welcome <strong style="color: rgb(253, 71, 71);"> {{user.userName}} </strong>To BuzzFeed, Your Favorite
+              News<i class='fas fa-globe fa-spin fa-lg'></i></h3>
+            <div *ngIf="loadprofile" class="card-body"><br />
+
+              <h5 class="card-title">Profile</h5> <br />
+              <!-- <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                      <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> -->
+              <div class="row">
+                <div class="data col-lg-6">
+                  <p><span>Name </span>: {{user.userName}}</p>
+
+
+                  <p><span>Email </span>: {{user.emailId}}</p>
+
+                  <p><span>Phone Number </span>: {{user.phoneNumber}}</p>
+                </div>
+                <div class="col-lg-6">
+
+                  <p><span>Location </span>: {{user.location}}</p>
+
+                  <p><span>Gender </span>: {{user.gender}}</p>
+
+                  <p><span>Selected Preferences </span>: {{user.preferredCategory}}</p>
+                </div>
+
+
+              </div>
+              <!-- </div> -->
+            </div>
+
+
+            <!--Edit Profile-->
+
+            <div *ngIf="editprofile" class="card-body"><br />
+              <form #updateForm="ngForm" (ngSubmit)="updateUser()">
+
+                <h5 class="card-title">Edit Profile</h5> <br />
+                <!-- <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> -->
+                <div class="row">
+                  <div class="data col-lg-6">
+
+
+                    <span class="form-group">
+                      <label for="userName" class="form-control-label">Username</label>
+                      <input id="userName" required type="text" class="form-control" name="userName"
+                        [(ngModel)]="user.userName" #userControl="ngModel">
+                    </span>
+
+                    <span class="form-group">
+                      <label for="emailId" class="form-control-label">Email</label>
+                      <input id="emailId" required type="text" class="form-control" name="emailId"
+                        [(ngModel)]="user.emailId" #userControl="ngModel">
+                    </span>
+
+
+                  </div>
+                  <div class="col-lg-6">
+                    <span class="form-group">
+                      <label for="phoneNumber" class="form-control-label">Phone Number</label>
+                      <input id="phoneNumber" required type="text" class="form-control" name="phoneNumber"
+                        [(ngModel)]="user.phoneNumber" #userControl="ngModel">
+                    </span>
+
+                    <span class="form-group">
+                      <label for="location">Location</label>
+                      <select id="location" required name="location" [(ngModel)]="user.location" class="form-control">
+                        <option class="dropdown" *ngFor="let location of locations" [value]="location.name">
+                          {{location.name}}</option>
+                      </select>
+
+                    </span>
+                  </div>
+
+
+                </div>
+                <!-- </div> -->
+
+                <div>
+                  <button id="submit" type="submit" class="btn btn-warning">Update</button><br /> <br />
+
+                  <div *ngIf="successupdate">
+                    <div class="form-group">
+                      <strong>Great,</strong>Your profile is successfully updated!
+                    </div>
+                  </div>
+
+                </div>
+              </form>
+            </div>
+
+
+
+
+
+
+          </div>
+          <div *ngIf="chartsdata" class="card-body" style="width: 60px; height: 600px;"><br />
+
+            <!--                    
+                                          
+                                            <script src="//cdn.amcharts.com/lib/4/core.js"></script>
+                                          <script src="//cdn.amcharts.com/lib/4/charts.js"></script> -->
+
+            <div *ngIf="chartsdata" id="chartdiv" style=" width: 800px"></div>
+
+
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</div>

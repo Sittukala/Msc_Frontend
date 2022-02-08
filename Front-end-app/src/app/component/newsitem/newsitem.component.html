@@ -1,0 +1,37 @@
+<p>newsitem works!</p>
+
+
+<div class="container">
+
+
+
+    <div>
+
+        <div class="card">
+            &nbsp; <br />
+            <form class="form-inline my-2 my-lg-0 w3-hide-small">
+                <div class="w3-hide-small searchContainer">
+
+                    <input class="searchBox" type="search" name="search" placeholder="Search..."
+                        [(ngModel)]="searchTerm"
+                        style="position: absolute; left: 70px; top: 2px;margin: 6px; padding: 2px;">
+                </div>
+            </form>
+            <div class="card-body">
+                &nbsp; <br />
+                <div class="row">
+
+                    <div *ngFor="let news of newsList" class="col-md-4 col-sm-6 col-12">
+
+
+                        <app-news [news]="news" [list_likes]="this.list_likes" [list_fav]="this.list_fav"
+                            [list_save]="this.list_save"></app-news>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

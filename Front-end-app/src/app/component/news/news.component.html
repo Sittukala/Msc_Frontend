@@ -1,0 +1,74 @@
+<div class="card card-block">
+  <div class="row">
+    <img class="card-img-top" src="{{news.urlToImage}}" alt="Card image">
+    <div class="card-body">
+      <a class="title" href={{news.url}}>{{news.title}}</a>
+      <p class="card1-description" style="margin: 2px;padding: 2px;">{{ news.description}}</p>
+      <h6 class="category text-success"><i class="fa fa-university"></i>{{news.category}}</h6>
+      <h6 class="country text-secondary"><i class="fas fa-flag-checkered"></i>{{news.country}}</h6>
+
+    </div>
+  </div>
+  <div class="row" style="margin: -2px;padding: 2px;">
+
+    <div class="col">
+      <a>
+        <i *ngIf="!news.islikedd" id="like_{{news.id}}" class="icons far fa-thumbs-up fa-lg fa-hover-hidden"></i>
+        <i *ngIf="!news.islikedd && !isLogin" id="likeh_{{news.id}}" data-toggle="modal" data-target="#loginModal"
+          class="icons fa fa-thumbs-up fa-lg fa-hover-show"></i>
+        <i *ngIf="!news.islikedd && isLogin" id="likeh_{{news.id}}" (click)='likedFeed(news)'
+          class="icons fa fa-thumbs-up fa-lg fa-hover-show"></i>
+        <i *ngIf="news.islikedd" id="liked_{{news.id}}" (click)='likedFeed(news)'
+          class="icons fa fa-thumbs-up fa-lg"></i>
+
+      </a>
+
+
+    </div>
+    <div class="col">
+
+      <a>
+        <i *ngIf="!news.isSaved" id="save_{{news.id}}"
+          class="saveicons fa fa-arrow-circle-down fa-lg fa-hover-hidden"></i>
+        <i *ngIf="!news.isSaved  && !isLogin" id="saveh_{{news.id}}" data-toggle="modal" data-target="#loginModal"
+          class="fa fa-arrow-circle-down fa-lg fa-hover-show"></i>
+        <i *ngIf="!news.isSaved  && isLogin " id="saveh_{{news.id}}" (click)='saveFeed(news)'
+          class="fa fa-arrow-circle-down fa-lg fa-hover-show"></i>
+        <i *ngIf="news.isSaved" id="saved_{{news.id}}" (click)='saveFeed(news)'
+          class="fa fa-arrow-circle-down fa-lg"></i>
+
+      </a>
+
+    </div>
+    <div class="col">
+      <a>
+        <i *ngIf="!news.isFavorite" id="fav_{{news.id}}" class="icons far fa-heart fa-lg fa-hover-hidden"></i>
+        <i *ngIf="!news.isFavorite  && !isLogin" id="favh_{{news.id}}" data-toggle="modal" data-target="#loginModal"
+          class="icons fa fa-heart fa-lg fa-hover-show"></i>
+        <i *ngIf="!news.isFavorite && isLogin" id="favh_{{news.id}}" (click)='favoriteFeed(news)'
+          class="icons fa fa-heart fa-lg fa-hover-show"></i>
+        <i *ngIf="news.isFavorite" id="favor_{{news.id}}" (click)='favoriteFeed(news)'
+          class="icons fa fa-heart fa-lg"></i>
+
+      </a>
+    </div>
+
+    <div class="modal" id="loginModal" tabindex="-1" role="dialog">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Login Required</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <p>Please Login to Personalize.</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

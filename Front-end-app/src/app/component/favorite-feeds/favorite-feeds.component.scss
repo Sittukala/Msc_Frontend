@@ -1,0 +1,76 @@
+@media only screen and (min-width : 1200px) {
+
+    .card1{
+    
+      top: 150px; 
+      position: absolute;
+      
+      margin-left: 300px;
+      margin-right: 20px;
+     background-color: rgb(7, 192, 192);
+     border-radius: 20px;
+      
+    }
+    
+    }
+
+.card1  a{
+    //color: rgb(26, 12, 219);
+    font-weight: bold;
+    cursor: pointer;
+
+}
+.card1 a:hover{
+    color: rgb(26, 12, 219);
+    font-weight: bold;
+    cursor: pointer;
+
+}
+
+
+.btn{
+    background-color: rgb(153, 194, 248);
+    
+  }
+  .btn:hover{
+    
+    color:  darkslategray;
+  }
+  
+  .btn-round{
+    border-radius: round($number: 2);
+    border-color: maroon;
+  }
+  
+  .card .title{
+  color: rgb(247, 131, 92);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 18px;
+  
+  } 
+  
+  .card .title:hover{
+    font-size: 19px;  
+    color: rgb(32, 18, 228);
+  }
+  
+  .card .card-body{
+    border: solid black(240, 11, 240);
+    border-radius: 10px;
+    padding-top: 2px;
+    margin: 5px;
+    border-width: 2px;
+    font-size: 15px;
+  }
+  .category, .card1-category{
+    width: 100%;
+    position: relative;
+    line-height: 0;
+    margin: 20px;
+    text-transform: capitalize;
+    font-weight: 400;
+    
+    font-size: 1em!important;
+
+}

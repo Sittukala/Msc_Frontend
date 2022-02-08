@@ -1,0 +1,180 @@
+<div class="w3-sidebar w3-bar-block w3-collapse w3-card" style="width:290px;" id="mySidebar">
+  <br />
+  <br />
+
+  <button class="w3-hide-large btn btn-primary" (click)="close()"
+    style="position: relative; top: -40px; left: 200px;">&times;</button>
+  <span>
+    <img src="../../../assets/icons/logo.png" style="height: 40px; width: 40px;"> &nbsp; &nbsp;
+    <a style="font-size: 20px;"> BUZZFEED </a>
+  </span>
+  <hr width="200px" style="margin-left: 20px;" />
+  <ul class="nav">
+    <!-- <li routerLinkActive="active" class="nav-item">
+            <a href="#" class="w3-bar-item w3-button">Link 1</a>
+            <a href="#" class="w3-bar-item w3-button">Link 2</a>
+            <a href="#" class="w3-bar-item w3-button">Link 3</a>
+        </li> -->
+
+    <div class="sidebar-wrapper" style="margin-left: 20px; padding: 20px;">
+      <ul class="nav" *ngFor="let menuItem of menuItems">
+        <li routerLinkActive="active" class="nav-item" style="margin-bottom: 60px;">
+          <!-- <a > -->
+          <i class="{{menuItem.icon}}"></i> &nbsp;&nbsp;
+          <a [routerLink]="[menuItem.path]"> {{menuItem.title}}</a>
+          <!-- </a> -->
+        </li>
+
+      </ul>
+    </div>
+
+  </ul>
+</div>
+
+<div class="w3-main" style="margin-left:260px">
+
+  <div class="w3header">
+    <button class="w3-button  w3-xlarge w3-left w3-hide-large" (click)="open()">&#9776;</button>
+
+    <div class="container">
+      <!-- <h2>My Page</h2> -->
+
+      <div class=row>
+        <div class="col-md-4">
+          <!-- <div *ngIf="this.view.isRecommend" class="alert alert-danger alert-dismissible fade show" role="alert" style="width: 400px; height:  70px; "> -->
+          <!-- <strong>Hey!{{user.userName}}</strong> <a  [routerLink]="['/personal-feed']" style="text-decoration: none !important;">You have a new recommendation. Click to View</a>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button> -->
+          <div *ngIf="this.view.isRecommend" class="alert alert-danger" role="alert">
+            Hey!<a [routerLink]="['/personal-feed']" class="alert-link">You have a new recommendation.</a>. Give it a
+            click if you like.
+
+          </div>
+        </div>
+        <div class="col-md-8">
+          <div>
+
+
+
+            <div *ngIf="isLoggedIn()" class="dropdown">
+
+
+              <a class="user-link" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                <i class="fa fa-user-circle usericon"></i>
+              </a>
+
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" href="#">Profile</a>
+                <a class="dropdown-item" (click)="logout()">Logout</a>
+              </div>
+            </div>
+            <!--new code recommend-->
+
+            <!---->
+            <div class="login">
+
+              <!--Bootstrap-->
+              <button *ngIf="!isLoggedIn()" class="btn btn-primary" data-toggle="modal"
+                data-target="#exampleModal">Login</button>
+
+              <!-- Modal -->
+              <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title"
+                        style="text-align: center; justify-content: center ;color: rgb(223, 78, 20)">Login to BuzzFeed
+                      </h5>
+                      <button type="button" data-dismiss="modal" class="close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      <!-- <div class="form-group" [class.is-invalid]="userNameControl.invalid && userNameControl.touched"
+         [class.in-valid]="userNameControl.valid"> -->
+                      <form #LoginForm="ngForm" (click)="login(user); LoginForm.resetForm()">
+
+                        <div class="form-group">
+
+                          <!-- <label for="jobTitle"  class="form-control-label">Job Title</label> -->
+                          <input type="text" class="form-control" placeholder="user" required name="userName"
+                            id="userName" [(ngModel)]="user.userName" #userNameControl="ngModel">
+
+
+                          <div *ngIf="userNameControl.invalid && (userNameControl.dirty || userNameControl.touched)"
+                            class="alert alert-danger">
+
+                            <div *ngIf="userNameControl.errors.required">
+                              UserName
+                            </div>
+
+
+                          </div>
+                        </div>
+                        <div class="form-group" [class.is-invalid]="passwordControl.invalid && passwordControl.touched"
+                          [class.in-valid]="passwordControl.valid">
+                          <!-- <label for="jobTitle"  class="form-control-label">Job Title</label> -->
+                          <input type="password" class="form-control" placeholder="password" required name="password"
+                            id="password" [(ngModel)]="user.password" #passwordControl="ngModel">
+
+
+                          <div *ngIf="passwordControl.invalid && (passwordControl.dirty || passwordControl.touched)"
+                            class="alert alert-danger">
+
+                            <div *ngIf="passwordControl.errors.required">
+                              Password
+                            </div>
+
+
+                          </div>
+                        </div>
+
+
+                        <!-- <div class="form-group">
+           <input type="password" class="form-control" placeholder="Password">
+         </div> -->
+
+                        <input type="submit" class="btn btn-primary btn-block" data-dismiss="modal" value="Login">
+                        <strong style="color: rgb(78, 78, 230);"> Not a User?</strong><a style="color: red;"
+                          data-dismiss="modal" [routerLink]="['/signup']">Click to Register</a>
+
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="dropdown w3-hide-small">
+
+
+              <a class="user-link" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                <i class="fa fa-globe usericon"></i>
+              </a>
+
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" href="#">Favorite Feed</a>
+                <a class="dropdown-item" href="#">Liked Feed</a>
+              </div>
+            </div>
+
+            <!-- &nbsp;&nbsp; -->
+
+
+
+            <!-- <form class="form-inline my-2 my-lg-0 w3-hide-small" style="float: right;" >
+        <div class="w3-hide-small searchContainer">
+            <input class="searchBox" type="search" name="search" placeholder="Search..."  [(ngModel)]="searchTerm">
+          </div>
+      </form> -->
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
